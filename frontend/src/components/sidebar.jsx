@@ -1,57 +1,152 @@
-import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { LayoutDashboard, Presentation, Bolt, User, LogOut } from 'lucide-react'
+import React, { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { supabase } from '../lib/supabase';
+import {
+  LayoutDashboard,
+  BookOpen,
+  TrendingUp,
+  LogOut,
+  Menu,
+  X,
+} from 'lucide-react';
 
-function Sidebar (props) {
-  // const navigate = useNavigate()
-  const navigate = useNavigate()
+export const Layout = ({ children }) => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const handleLogout = () => {
-    localStorage.removeItem('token')
-    navigate('/login')
-    props.showAlert('Logged Out', '#D4EDDA')
-    window.location.reload()
-    // setIsProfileOpen(false)
-  }
-  if (!props.user) return null
+  const navigation = [
+    {
+      name: 'Dashboard',
+      href: '/dashboard',
+      icon: LayoutDashboard,
+    },
+    {
+      name: 'Education',
+      href: '/education',
+      icon: BookOpen,
+    },
+    {
+      name: 'Investments',
+      href: '/investments',
+      icon: TrendingUp,
+    },
+  ];
+
+  const handleSignOut = async () => {
+    await supabase.auth.signOut();
+    navigate('/login');
+  };
+
   return (
-    <div>
-      <button data-drawer-target='default-sidebar' data-drawer-toggle='default-sidebar' aria-controls='default-sidebar' type='button' className='inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600'>
-        <span className='sr-only'>Open sidebar</span>
-        <svg className='w-6 h-6' aria-hidden='true' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'>
-          <path clip-rule='evenodd' fill-rule='evenodd' d='M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z' />
-        </svg>
-      </button>
-
-      <aside id='default-sidebar' className='fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0' aria-label='Sidebar'>
-        <div className='h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800'>
-          <div className='logo'>LOGO</div>
-          <nav className='flex flex-col space-y-4'>
-            <Link to='/' className='flex items-center'>
-              <LayoutDashboard className='mr-2' />
-              <span>Dashboard</span>
-            </Link>
-            <div className='flex items-center'>
-              <Presentation className='mr-2' />
-              <span>Presentation</span>
-            </div>
-            <div className='flex items-center'>
-              <Bolt className='mr-2' />
-              <span>Bolt</span>
-            </div>
-            <Link to='/profile' className='flex items-center'>
-              <User className='mr-2' />
-              <span>Profile</span>
-            </Link>
-            <div className='flex items-center cursor-pointer' onClick={handleLogout}>
-              <LogOut className='mr-2' />
-              <span>Logout</span>
-            </div>
-          </nav>
+    <div className="min-h-screen bg-gray-100">
+      {/* Mobile menu */}
+      <div className="lg:hidden">
+        <div className="flex items-center justify-between bg-white px-4 py-2 shadow-sm">
+          <Link to="/" className="text-xl font-bold text-indigo-600">
+            SpendWise
+          </Link>
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 rounded-md text-gray-400 hover:text-gray-500"
+          >
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
         </div>
-      </aside>
-    </div>
-  )
-}
+        {mobileMenuOpen && (
+          <div
+            className="fixed inset-0 z-40 bg-black bg-opacity-25"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            <div className="fixed inset-y-0 left-0 w-64 bg-white shadow-lg">
+              <div className="flex flex-col h-full">
+                <div className="flex-1 py-4 overflow-y-auto">
+                  <nav className="px-2 space-y-1">
+                    {navigation.map((item) => {
+                      const Icon = item.icon;
+                      return (
+                        <Link
+                          key={item.name}
+                          to={item.href}
+                          className={`${
+                            location.pathname === item.href
+                              ? 'bg-indigo-50 text-indigo-600'
+                              : 'text-gray-600 hover:bg-gray-50'
+                          } group flex items-center px-2 py-2 text-base font-medium rounded-md`}
+                        >
+                          <Icon className="mr-4 h-6 w-6" />
+                          {item.name}
+                        </Link>
+                      );
+                    })}
+                  </nav>
+                </div>
+                <div className="p-4 border-t border-gray-200">
+                  <button
+                    onClick={handleSignOut}
+                    className="flex items-center w-full px-2 py-2 text-base font-medium text-gray-600 rounded-md hover:bg-gray-50"
+                  >
+                    <LogOut className="mr-4 h-6 w-6" />
+                    Sign out
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
 
-export default Sidebar
+      {/* Desktop sidebar */}
+      <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
+        <div className="flex flex-col flex-grow bg-white pt-5 pb-4 overflow-y-auto">
+          <div className="flex items-center flex-shrink-0 px-4">
+            <Link to="/" className="text-xl font-bold text-indigo-600">
+              SpendWise
+            </Link>
+          </div>
+          <nav className="mt-5 flex-1 px-2 space-y-1">
+            {navigation.map((item) => {
+              const Icon = item.icon;
+              return (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`${
+                    location.pathname === item.href
+                      ? 'bg-indigo-50 text-indigo-600'
+                      : 'text-gray-600 hover:bg-gray-50'
+                  } group flex items-center px-2 py-2 text-sm font-medium rounded-md`}
+                >
+                  <Icon className="mr-3 h-6 w-6" />
+                  {item.name}
+                </Link>
+              );
+            })}
+          </nav>
+          <div className="p-4 border-t border-gray-200">
+            <button
+              onClick={handleSignOut}
+              className="flex items-center w-full px-2 py-2 text-sm font-medium text-gray-600 rounded-md hover:bg-gray-50"
+            >
+              <LogOut className="mr-3 h-6 w-6" />
+              Sign out
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Main content */}
+      <div className="lg:pl-64 flex flex-col flex-1">
+        <main className="flex-1 py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {children}
+          </div>
+        </main>
+      </div>
+    </div>
+  );
+};
