@@ -1,22 +1,27 @@
 import React from 'react'
-// import FinGoalForm from './Dashboard/FinGoalForm'
 import GoalForm from './Dashboard/GoalForm'
 import IncomeExpenseForm from './Dashboard/IncomeExpenseForm'
 import BalanceCard from './Dashboard/BalanceCard'
 import Sidebar from './sidebar'
-// import GoalProgress from './Dashboard/GoalProgress'
 
 function Home () {
   return (
-    <div>
-      {/* <FinGoalForm /> */}
+    <>
       <Sidebar />
-      <BalanceCard />
-      <IncomeExpenseForm />
-      <GoalForm />
-      {/* <GoalsDashboard /> */}
-      {/* <GoalProgress /> */}
-    </div>
+      <div className='flex gap-12 p-6'>
+        {/* First Column: BalanceCard & IncomeExpenseForm */}
+        <div className='flex flex-col gap-6 w-1/2'>
+          <BalanceCard />
+          <IncomeExpenseForm />
+        </div>
+
+        {/* Second Column: GoalForm */}
+        <div className='w-1/2'>
+          <GoalForm />
+        </div>
+      </div>
+
+    </>
   )
 }
 

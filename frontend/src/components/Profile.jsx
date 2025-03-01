@@ -25,9 +25,9 @@ function Profile (props) {
 
   return (
     <>
-      <div className='h-screen flex justify-center items-center bg-gray-50 dark:bg-gray-900'>
+      <div className='h-screen flex justify-center items-center bg-gray-50 dark:bg-gray-900 '>
         <div className='flex items-center justify-center px-4 md:px-6 text-black dark:text-white'>
-          <div className='bg-white dark:bg-gray-800 bg-opacity-80 rounded-lg shadow-lg py-6 px-6 sm:px-10 w-full max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl'>
+          <div className='bg-white dark:bg-gray-800 bg-opacity-80 rounded-lg shadow-lg py-6 px-6 sm:px-10 w-[40vw] max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl'>
 
             <div className='text-center mb-6'>
               <h3 className='text-2xl md:text-3xl font-bold text-black dark:text-white'>Profile Details</h3>
@@ -44,7 +44,7 @@ function Profile (props) {
                 </div>
               )}
 
-              <div className='flex-1 space-y-4 w-full flex flex-col justify-center h-full'>
+              <div className='flex-1 space-y-4 w-full flex flex-col justify-center ite h-full'>
                 {[
                   { label: 'Name', value: name },
                   { label: 'Username', value: username },
