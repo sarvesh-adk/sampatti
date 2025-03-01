@@ -58,6 +58,7 @@ export const GoalForm = () => {
               placeholder="e.g., Buy a House"
               required
             />
+            </div>
           </div>
         </div>
 
@@ -88,32 +89,3 @@ export const GoalForm = () => {
               className="pl-10 block w-full rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
             />
           </div>
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Category
-          </label>
-          <input
-            type="text"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            className="block w-full rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
-            placeholder="e.g., Savings"
-            required
-          />
-        </div>
-
-        <button
-          type="submit"
-          className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          disabled={loading}
-        >
-          {loading ? 'Adding...' : 'Add Goal'}
-        </button>
-      </form>
-    </div>
-  );
-};
-
-export default GoalForm;
