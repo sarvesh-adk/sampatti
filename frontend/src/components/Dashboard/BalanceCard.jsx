@@ -35,7 +35,7 @@ const BalanceCard = () => {
   }, [])
 
   return (
-    <div className='bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 space-y-4'>
+    <div className='bg-white dark:bg-[#1E2939] rounded-xl shadow-lg p-6 space-y-4'>
       <div className='flex items-center justify-between'>
         <h2 className='text-xl font-semibold text-gray-800 dark:text-gray-200'>
           Total Balance

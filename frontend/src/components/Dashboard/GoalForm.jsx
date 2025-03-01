@@ -78,7 +78,7 @@ const GoalForm = () => {
   }
 
   return (
-    <div className='bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-xl shadow-lg p-6 mb-8 transition-colors duration-300'>
+    <div className='bg-white dark:bg-[#1E2939] text-gray-900 dark:text-gray-100 rounded-xl shadow-lg p-6 mb-8 transition-colors duration-300'>
       <h2 className='text-xl font-semibold mb-6'>Add Financial Goal</h2>
 
       {error && <div className='text-red-500 text-sm mb-4'>{error}</div>}
@@ -138,23 +138,23 @@ const GoalForm = () => {
         <h3 className='text-lg font-semibold mb-4'>Your Financial Goals</h3>
 
         {goals.length === 0
-? (
-          <p className='text-gray-500 dark:text-gray-400'>No goals added yet.</p>
-        )
-: (
-          <ul className='space-y-4'>
-            {goals.sort((a, b) => new Date(b.targetDate) - new Date(a.targetDate)).map((goal) => (
-              <li
-                key={goal._id}
-                className='bg-gray-100 dark:bg-gray-800 p-4 rounded-md shadow border-l-4 border-indigo-500 dark:border-indigo-400 transition-colors duration-300'
-              >
-                <h4 className='text-md font-medium'>{goal.title}</h4>
-                <p className='text-sm'>🎯 Target Amount: ₹{goal.amount}</p>
-                <p className='text-sm'>📅 Deadline: {new Date(goal.targetDate).toLocaleDateString()}</p>
-              </li>
-            ))}
-          </ul>
-        )}
+          ? (
+            <p className='text-gray-500 dark:text-gray-400'>No goals added yet.</p>
+            )
+          : (
+            <ul className='space-y-4'>
+              {goals.sort((a, b) => new Date(b.targetDate) - new Date(a.targetDate)).map((goal) => (
+                <li
+                  key={goal._id}
+                  className='bg-gray-100 dark:bg-gray-800 p-4 rounded-md shadow border-l-4 border-indigo-500 dark:border-indigo-400 transition-colors duration-300'
+                >
+                  <h4 className='text-md font-medium'>{goal.title}</h4>
+                  <p className='text-sm'>🎯 Target Amount: ₹{goal.amount}</p>
+                  <p className='text-sm'>📅 Deadline: {new Date(goal.targetDate).toLocaleDateString()}</p>
+                </li>
+              ))}
+            </ul>
+            )}
       </div>
     </div>
   )

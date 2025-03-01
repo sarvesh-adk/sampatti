@@ -69,7 +69,7 @@ const IncomeExpenseForm = () => {
   ]
 
   return (
-    <div className='bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 mb-8'>
+    <div className='bg-white dark:bg-[#1E2939] rounded-xl shadow-lg p-6 mb-8'>
       <h2 className='text-xl font-semibold text-gray-800 dark:text-gray-200 mb-6'>
         Add Transaction
       </h2>

@@ -26,7 +26,7 @@ function Sidebar (props) {
   return (
     <div className='flex'>
       {/* Sidebar */}
-      <div className={`min-h-screen bg-gray-50 dark:bg-gray-900 ${sidebarOpen ? 'w-64' : 'w-20'} transition-width duration-300`}>
+      <div className={`min-h-screen bg-gray-50 dark:bg-gray-900 ${sidebarOpen ? 'w-64' : 'w-20'} w-[17%] transition-width duration-300`}>
         {/* Mobile menu */}
         <div className='lg:hidden'>
           <div className='flex items-center justify-between bg-white dark:bg-gray-800 px-4 py-2 shadow-sm'>
