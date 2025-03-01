@@ -21,6 +21,8 @@ const corsOptions = {
 app.use(cors(corsOptions))
 
 app.use('/api/auth', require('./api/auth'))
+// app.use('/api/goal', require('./api/goal')) // Ensure this line is present
+app.use('/api/financialGoals', require('./api/financialGoals')) // Updated path
 
 app.get('/', (req, res) => {
   res.send('Backend Route for Sampatti')
