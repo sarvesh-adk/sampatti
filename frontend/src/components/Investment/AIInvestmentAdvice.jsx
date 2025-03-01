@@ -50,19 +50,19 @@ const AIInvestmentAdvice = () => {
         <div>
           <label className='block text-sm font-medium text-gray-600 dark:text-gray-100 mb-1'>Monthly Investment</label>
           <div className='relative'>
-            <DollarSign className='absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5' />
+            <DollarSign className='absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-300 h-5 w-5' />
             <input
               type='number'
               value={monthlyInvestment}
               onChange={(e) => setMonthlyInvestment(e.target.value)}
-              className='pl-10 block w-full rounded-md border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 dark:text-gray-100 focus:border-[#FF6500] focus:ring-[#FF6500] sm:text-sm p-2'
+              className='pl-10 block w-full rounded-md border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 focus:border-[#FF6500] focus:ring-[#FF6500] sm:text-sm p-2'
               placeholder='0.00'
             />
           </div>
         </div>
 
         <div>
-          <label className='block text-sm font-medium text-gray-600 dark:text-gray-500 mb-1'>Risk Tolerance</label>
+          <label className='block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1'>Risk Tolerance</label>
           <select
             value={riskTolerance}
             onChange={(e) => setRiskTolerance(e.target.value)}
@@ -75,7 +75,7 @@ const AIInvestmentAdvice = () => {
         </div>
 
         <div>
-          <label className='block text-sm font-medium text-gray-600 dark:text-gray-500 mb-1'>Investment Timeframe</label>
+          <label className='block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1'>Investment Timeframe</label>
           <select
             value={timeHorizon}
             onChange={(e) => setTimeHorizon(e.target.value)}

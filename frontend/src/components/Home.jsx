@@ -8,7 +8,7 @@ function Home () {
   return (
     <>
       <Sidebar />
-      <div className='flex gap-12 p-6'>
+      <div className='flex gap-12 p-6 mr-8'>
         {/* First Column: BalanceCard & IncomeExpenseForm */}
         <div className='flex flex-col gap-6 w-1/2'>
           <BalanceCard />

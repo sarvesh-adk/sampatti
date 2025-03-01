@@ -73,7 +73,7 @@ export const InvestAdvice = () => {
             </div>
             <div>
               <h4 className='text-lg font-medium text-[#FF6500]'>Risk Level</h4>
-              <p className='text-gray-600 dark:text-gray-500'>
+              <p className='text-gray-600 dark:text-gray-300'>
                 Your profile indicates a moderate risk tolerance, suitable for long-term growth
                 while maintaining some stability.
               </p>
@@ -87,7 +87,7 @@ export const InvestAdvice = () => {
             </div>
             <div>
               <h4 className='text-lg font-medium text-[#FF6500]'>Investment Strategy</h4>
-              <p className='text-gray-600 dark:text-gray-500'>
+              <p className='text-gray-600 dark:text-gray-300'>
                 A balanced approach with a mix of stocks for growth and bonds for stability.
                 Regular rebalancing is recommended.
               </p>
@@ -101,7 +101,7 @@ export const InvestAdvice = () => {
             </div>
             <div>
               <h4 className='text-lg font-medium text-[#FF6500]'>Next Steps</h4>
-              <ul className='text-gray-600 dark:text-gray-500 list-disc list-inside'>
+              <ul className='text-gray-600 dark:text-gray-300 list-disc list-inside'>
                 <li>Review and adjust your portfolio quarterly</li>
                 <li>Consider increasing your monthly investment amount</li>
                 <li>Diversify across different sectors and regions</li>

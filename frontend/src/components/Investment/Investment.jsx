@@ -4,7 +4,7 @@ import { InvestAdvice } from './InvestAdvice'
 
 function Investment () {
   return (
-    <div className='flex-col space-y-12 mt-12'>
+    <div className='flex-col space-y-12 mt-12 mr-12'>
       <InvestAdvice />
       <AIInvestmentAdvice />
     </div>
