@@ -1,32 +1,32 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { LayoutDashboard, Presentation, Bolt, User, LogOut, Menu, X } from 'lucide-react'
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { LayoutDashboard, Book, ChartArea, User, LogOut, Menu, X } from 'lucide-react';
 
-function Sidebar (props) {
-  const navigate = useNavigate()
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [sidebarOpen, setSidebarOpen] = useState(true)
+function Sidebar(props) {
+  const navigate = useNavigate();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const navigation = [
     { name: 'Dashboard', href: '/', icon: LayoutDashboard },
-    { name: 'Presentation', href: '/presentation', icon: Presentation },
-    { name: 'Bolt', href: '/bolt', icon: Bolt },
+    { name: 'Education', href: '/presentation', icon: Book },
+    { name: 'Investment', href: '/bolt', icon: ChartArea },
     { name: 'Profile', href: '/profile', icon: User }
-  ]
+  ];
 
   const handleLogout = () => {
-    localStorage.removeItem('token')
-    navigate('/login')
-    props.showAlert('Logged Out', '#D4EDDA')
-    window.location.reload()
-  }
+    localStorage.removeItem('token');
+    navigate('/login');
+    props.showAlert('Logged Out', '#D4EDDA');
+    window.location.reload();
+  };
 
-  if (!props.user) return null
+  if (!props.user) return null;
 
   return (
     <div className='flex'>
       {/* Sidebar */}
-      <div className={`min-h-screen bg-gray-50 dark:bg-gray-900 ${sidebarOpen ? 'w-64' : 'w-20'} w-[17%] transition-width duration-300`}>
+      <div className={`min-h-screen bg-gray-50 dark:bg-gray-900 ${sidebarOpen ? 'w-54' : 'w-20'} transition-width duration-300`}>
         {/* Mobile menu */}
         <div className='lg:hidden'>
           <div className='flex items-center justify-between bg-white dark:bg-gray-800 px-4 py-2 shadow-sm'>
@@ -50,7 +50,7 @@ function Sidebar (props) {
                   <div className='flex-1 py-4 overflow-y-auto'>
                     <nav className='px-2 space-y-1'>
                       {navigation.map((item) => {
-                        const Icon = item.icon
+                        const Icon = item.icon;
                         return (
                           <Link
                             key={item.name}
@@ -64,7 +64,7 @@ function Sidebar (props) {
                             <Icon className='mr-4 h-6 w-6' />
                             {item.name}
                           </Link>
-                        )
+                        );
                       })}
                     </nav>
                   </div>
@@ -93,7 +93,7 @@ function Sidebar (props) {
             </div>
             <nav className='mt-5 flex-1 px-2 space-y-1'>
               {navigation.map((item) => {
-                const Icon = item.icon
+                const Icon = item.icon;
                 return (
                   <Link
                     key={item.name}
@@ -107,7 +107,7 @@ function Sidebar (props) {
                     <Icon className='mr-3 h-6 w-6' />
                     {item.name}
                   </Link>
-                )
+                );
               })}
             </nav>
             <div className='p-4 border-t border-gray-200 dark:border-gray-700'>
@@ -132,7 +132,7 @@ function Sidebar (props) {
         </main>
       </div>
     </div>
-  )
+  );
 }
 
-export default Sidebar
+export default Sidebar;
