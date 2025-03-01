@@ -6,7 +6,7 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import Alert from './components/Alert'
 import Profile from './components/Profile'
-import Sidebar from './components/Sidebar'
+import Sidebar from './components/sidebar'
 
 function App () {
   const hostLink = import.meta.env.VITE_HOSTLINK
