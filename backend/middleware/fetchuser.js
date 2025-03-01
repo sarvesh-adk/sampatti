@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 
-const JWT_SCREAT = process.env.JWTSIGN
+const JWT_SECRET = process.env.JWTSIGN
 
 const fetchuser = (req, res, next) => {
   const token = req.header('auth-token')
@@ -9,7 +9,7 @@ const fetchuser = (req, res, next) => {
   }
   try {
     // Try different token verification strategies
-    const data = jwt.verify(token, JWT_SCREAT)
+    const data = jwt.verify(token, JWT_SECRET)
 
     // Handle different token structures
     req.user = data.user || data

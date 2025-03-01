@@ -7,14 +7,15 @@ const { body, validationResult } = require('express-validator')
 const fetchuser = require('../middleware/fetchuser')
 const JWT_SECRET = process.env.JWTSIGN
 
-// ROUTE 1: Create a User using: POST No Login required
+// Route 1: Create a User using: POST "/api/auth/createuser". No login required
 router.post('/createuser', [
   body('username', 'Enter a valid username').isLength({ min: 3 }),
   body('email', 'Enter a valid email').isEmail(),
-  body('password', 'Password must be 5 characters long').isLength({ min: 5 }),
+  body('password', 'Password must be atleast 5 characters').isLength({ min: 5 }),
+  body('name', 'Enter a valid name').isLength({ min: 3 }),
   body('age', 'Enter a valid age').isNumeric()
 ], async (req, res) => {
-  const success = false
+  let success = false
   // If there are errors, return Bad request and the errors
   const errors = validationResult(req)
   if (!errors.isEmpty()) {
@@ -24,25 +25,25 @@ router.post('/createuser', [
   try {
     let user = await User.findOne({ email: req.body.email })
     if (user) {
-      return res.status(400).json({ success, error: 'A user with this email exists' })
+      return res.status(400).json({ success, error: 'A User with this email exist' })
     }
 
-    user = await User.findOne({ username: req.body.username })
+    user = await User.findOne({ username: req.body.email })
     if (user) {
-      return res.status(400).json({ success, error: 'A user with this username exists' })
+      return res.status(400).json({ success, error: 'A User with this username exist' })
     }
 
     // HASH THE PASSWORD
     const salt = await bcrypt.genSalt(10)
     const secPass = await bcrypt.hash(req.body.password, salt)
 
-    // Create a new user
+    // Create the new user
     user = await User.create({
       username: req.body.username,
-      email: req.body.email,
       name: req.body.name,
-      age: req.body.age,
-      password: secPass
+      email: req.body.email,
+      password: secPass,
+      age: req.body.age
     })
 
     const data = {
@@ -53,14 +54,15 @@ router.post('/createuser', [
 
     const authToken = jwt.sign(data, JWT_SECRET)
 
+    success = true
     res.json({ success, authToken })
-  } catch {
-    console.error(errors.message)
+  } catch (error) {
+    console.error(error.message)
     res.status(500).send('INTERNAL SERVER ERROR')
   }
 })
 
-// ROUTE 2: Authenticate using credentials  //NO LOGIN REQUIRED
+// ROUTE 2: Authenticate User using: POST "/api/auth/login". No login required
 router.post('/login', [
   body('username', 'Enter a valid username').isLength({ min: 3 }),
   body('password', 'Enter a valid password').isLength({ min: 3 })
