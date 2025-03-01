@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { LayoutDashboard, Presentation, Bolt, User, LogOut, Menu, X } from 'lucide-react'
+import { LayoutDashboard, Book, Bolt, User, LogOut, Menu, X } from 'lucide-react'
 
 function Sidebar (props) {
   const navigate = useNavigate()
@@ -9,7 +9,7 @@ function Sidebar (props) {
 
   const navigation = [
     { name: 'Dashboard', href: '/', icon: LayoutDashboard },
-    { name: 'Presentation', href: '/presentation', icon: Presentation },
+    { name: 'Education', href: '/presentation', icon: Book },
     { name: 'Bolt', href: '/bolt', icon: Bolt },
     { name: 'Profile', href: '/profile', icon: User }
   ]
@@ -26,7 +26,7 @@ function Sidebar (props) {
   return (
     <div className='flex'>
       {/* Sidebar */}
-      <div className={`min-h-screen bg-gray-50 dark:bg-gray-900 ${sidebarOpen ? 'w-64' : 'w-20'} transition-width duration-300`}>
+      <div className={`min-h-screen bg-gray-50 dark:bg-gray-900 ${sidebarOpen ? 'w-54' : 'w-20'} transition-width duration-300`}>
         {/* Mobile menu */}
         <div className='lg:hidden'>
           <div className='flex items-center justify-between bg-white dark:bg-gray-800 px-4 py-2 shadow-sm'>
