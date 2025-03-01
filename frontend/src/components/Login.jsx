@@ -1,4 +1,3 @@
-import js from '@eslint/js'
 import React, { useState, useEffect } from 'react'
 import { useLocation, Link, useNavigate } from 'react-router-dom'
 
@@ -74,21 +73,21 @@ function Login (props) {
   }
 
   return (
-    <div className='h-screen flex justify-center items-center'>
+    <div className='h-screen flex justify-center items-center bg-gray-100 dark:bg-gray-900'>
       <div className='w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700'>
         <form className='space-y-6' onSubmit={handleSubmit}>
           <h5 className='text-xl font-medium text-gray-900 dark:text-white'>Sign in to our platform</h5>
           <div>
             <label htmlFor='username' className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>Your username</label>
-            <input type='text' id='username' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white' name='username' placeholder='Username' value={credentials.username} onChange={onChange} />
+            <input type='text' id='username' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white' name='username' placeholder='Username' value={credentials.username} onChange={onChange} />
           </div>
           <div>
             <label htmlFor='password' className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>Your password</label>
-            <input type='password' name='password' id='password' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white' placeholder='Password' value={credentials.password} onChange={onChange} />
+            <input type='password' name='password' id='password' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white' placeholder='Password' value={credentials.password} onChange={onChange} />
           </div>
-          <button type='submit' className='w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>Login to your account</button>
+          <button type='submit' className='w-full text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-indigo-500 dark:hover:bg-indigo-600 dark:focus:ring-indigo-800'>Login to your account</button>
           <Link to='/signup' className='text-sm font-medium text-gray-500 dark:text-gray-300'>
-            Not registered? <span className='text-blue-700 hover:underline dark:text-blue-500'>Create account</span>
+            Not registered? <span className='text-indigo-600 hover:underline dark:text-indigo-400'>Create account</span>
           </Link>
         </form>
       </div>

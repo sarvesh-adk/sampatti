@@ -6,7 +6,7 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import Alert from './components/Alert'
 import Profile from './components/Profile'
-import Sidebar from './components/sidebar'
+import Sidebar from './components/Sidebar'
 
 function App () {
   const hostLink = import.meta.env.VITE_HOSTLINK
@@ -17,7 +17,7 @@ function App () {
   const showAlert = (message, type) => {
     setAlert({ msg: message, type })
     setTimeout(() => setAlert(null), 2000)
-  };
+  }
 
   useEffect(() => {
     const token = localStorage.getItem('token')
@@ -62,7 +62,7 @@ function App () {
 
   return (
     <Router>
-      <div className='bg-gray-50 dark:bg-gray-600'>
+      <div className='bg-gray-100 dark:bg-gray-900'>
         <Alert alert={alert} />
         <div className='flex'>
           {user && <Sidebar user={user} showAlert={showAlert} />}
@@ -83,6 +83,6 @@ function App () {
 // ✅ Protected Route Wrapper
 const ProtectedRoute = ({ user, children }) => {
   return user ? children : <Navigate to='/login' />
-};
+}
 
 export default App
