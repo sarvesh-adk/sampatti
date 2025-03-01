@@ -22,7 +22,7 @@ const riskProfiles = {
 }
 
 // Define colors for the chart slices based on your theme
-const COLORS = ['#FF6500', '#1E3E62', '#0B192C']
+const COLORS = ['#4F46E5', '#10B981', '#6B7280']
 
 export const InvestAdvice = () => {
   // The user's selected risk profile
@@ -34,7 +34,7 @@ export const InvestAdvice = () => {
 
   return (
     <div className=' bg-gray-50 dark:bg-[#1E2939] rounded-xl shadow-lg p-6 text-white'>
-      <h2 className='text-2xl font-bold text-[#FF6500] mb-6'>Investment Strategy</h2>
+      <h2 className='text-2xl font-bold text-[#FF0000] mb-6'>Investment Strategy</h2>
 
       <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
         {/* Pie chart section */}

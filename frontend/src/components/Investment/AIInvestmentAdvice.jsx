@@ -48,14 +48,14 @@ const AIInvestmentAdvice = () => {
 
       <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mb-6'>
         <div>
-          <label className='block text-sm font-medium text-gray-600 dark:text-gray-500 mb-1'>Monthly Investment</label>
+          <label className='block text-sm font-medium text-gray-600 dark:text-gray-100 mb-1'>Monthly Investment</label>
           <div className='relative'>
             <DollarSign className='absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5' />
             <input
               type='number'
               value={monthlyInvestment}
               onChange={(e) => setMonthlyInvestment(e.target.value)}
-              className='pl-10 block w-full rounded-md border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 focus:border-[#FF6500] focus:ring-[#FF6500] sm:text-sm p-2'
+              className='pl-10 block w-full rounded-md border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 dark:text-gray-100 focus:border-[#FF6500] focus:ring-[#FF6500] sm:text-sm p-2'
               placeholder='0.00'
             />
           </div>
@@ -66,7 +66,7 @@ const AIInvestmentAdvice = () => {
           <select
             value={riskTolerance}
             onChange={(e) => setRiskTolerance(e.target.value)}
-            className='block w-full rounded-md border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 focus:border-[#FF6500] focus:ring-[#FF6500] sm:text-sm p-2'
+            className='block w-full rounded-md border border-gray-300 dark:border-gray-700 bg-gray-100 dark:text-gray-100 dark:bg-gray-800 focus:border-[#FF6500] focus:ring-[#FF6500] sm:text-sm p-2'
           >
             <option value='conservative'>Conservative</option>
             <option value='moderate'>Moderate</option>
@@ -79,7 +79,7 @@ const AIInvestmentAdvice = () => {
           <select
             value={timeHorizon}
             onChange={(e) => setTimeHorizon(e.target.value)}
-            className='block w-full rounded-md border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800   shadow-sm  focus:border-[#FF6500] focus:ring-[#FF6500] sm:text-sm p-2'
+            className='block w-full rounded-md border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 dark:text-gray-100   shadow-sm  focus:border-[#FF6500] focus:ring-[#FF6500] sm:text-sm p-2'
           >
             <option value='0-5'>0-5 years</option>
             <option value='5-10'>5-10 years</option>
