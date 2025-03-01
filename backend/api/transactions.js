@@ -1,6 +1,6 @@
 const express = require('express')
 const Transaction = require('../models/Transaction')
-const fetchUser = require('../middleware/fetchUser')
+const fetchUser = require('../middleware/fetchser')
 
 const router = express.Router()
 
