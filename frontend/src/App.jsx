@@ -7,6 +7,8 @@ import Signup from './components/Signup'
 import Alert from './components/Alert'
 import Profile from './components/Profile'
 import Sidebar from './components/sidebar'
+// import AllinvestmentAdvise from './components/Investment/AllInvestmentAdvice'
+import Investment from './components/Investment/Investment'
 
 function App () {
   const hostLink = import.meta.env.VITE_HOSTLINK
@@ -71,6 +73,7 @@ function App () {
               <Route path='/login' element={user ? <Navigate to='/' /> : <Login setUser={setUser} showAlert={showAlert} />} />
               <Route path='/signup' element={user ? <Navigate to='/' /> : <Signup showAlert={showAlert} />} />
               <Route path='/' element={<ProtectedRoute user={user}><Home /></ProtectedRoute>} />
+              <Route excat path='/investment' element={<Investment />} />
               <Route path='/profile' element={<ProtectedRoute user={user}><Profile user={user} showAlert={showAlert} /></ProtectedRoute>} />
             </Routes>
           </div>
