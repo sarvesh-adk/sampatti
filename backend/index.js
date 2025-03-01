@@ -20,7 +20,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions))
 
-// app.use('/api/auth', require('./api/auth'))
+app.use('/api/auth', require('./api/auth'))
 
 app.get('/', (req, res) => {
   res.send('Backend Route for Sampatti')
