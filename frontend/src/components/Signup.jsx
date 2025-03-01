@@ -12,7 +12,7 @@ const Signup = (props) => {
   })
   // const hostLink = 'http://localhost:8000'
   // const hostLink = 'https://inotebook-backend-opal.vercel.app'
-  const hostLink = import.meta.env.REACT_APP_HOSTLINK
+  const hostLink = import.meta.env.VITE_HOSTLINK
   const location = useLocation()
 
   useEffect(() => {
