@@ -31,7 +31,7 @@ const courses = [
 export const EducationHub = () => {
   return (
     <div className='bg-gray-100 dark:bg-[#1E2939] rounded-xl shadow-lg p-6 mt-12 mr-12 '>
-      <h2 className='text-2xl font-bold text-gray-900 mb-6'>Financial Education</h2>
+      <h2 className='text-2xl font-bold text-gray-900 mb-6 dark:text-white'>Financial Education</h2>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
         {courses.map((course) => (
           <div
