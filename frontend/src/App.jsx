@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import Sidebar from './components/Sidebar'
+// import Sidebar from './components/Sidebar'
 import Home from './components/Home'
 import Login from './components/Login'
 import Signup from './components/Signup'
@@ -64,7 +64,7 @@ function App () {
       <Router>
         <div className='flex'>
           {/* Conditionally render Sidebar based on user */}
-          {user && <Sidebar user={user} showAlert={showAlert} />}
+          {/* {user && <Sidebar user={user} showAlert={showAlert} />} */}
           <div className='flex-grow'>
             <Routes>
               <Route exact path='/' key='/' element={<Home />} />
