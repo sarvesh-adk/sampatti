@@ -149,7 +149,7 @@ const GoalForm = () => {
                   className='bg-gray-100 dark:bg-gray-800 p-4 rounded-md shadow border-l-4 border-indigo-500 dark:border-indigo-400 transition-colors duration-300'
                 >
                   <h4 className='text-md font-medium'>{goal.title}</h4>
-                  <p className='text-sm'>🎯 Target Amount: ₹{goal.amount}</p>
+                  <p className='text-sm'>🎯 Target Amount: ${goal.amount}</p>
                   <p className='text-sm'>📅 Deadline: {new Date(goal.targetDate).toLocaleDateString()}</p>
                 </li>
               ))}
