@@ -1,6 +1,7 @@
 import React from 'react'
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts'
 import { Briefcase, TrendingUp, Shield } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 // Defining the risk profile allocations
 const riskProfiles = {
@@ -61,6 +62,9 @@ export const InvestAdvice = () => {
                 <Legend />
               </PieChart>
             </ResponsiveContainer>
+            <Link to='/terms' className='text-xs hover:underline cursor-pointer transition-all duration-700 ease-in-out text-gray-600 dark:text-gray-100'>
+              *T&C Applies
+            </Link>
           </div>
         </div>
 

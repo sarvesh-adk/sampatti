@@ -10,8 +10,23 @@ import Sidebar from './components/sidebar'
 // import AllinvestmentAdvise from './components/Investment/AllInvestmentAdvice'
 import Investment from './components/Investment/Investment'
 import { EducationHub } from './components/Education/EducationHub'
+import TermsAndConditions from './components/TermsAndCondition'
 
 function App () {
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem('theme') === 'dark'
+  )
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark')
+      localStorage.setItem('theme', 'dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+      localStorage.setItem('theme', 'light')
+    }
+  }, [darkMode])
+
   const hostLink = import.meta.env.VITE_HOSTLINK
   const [alert, setAlert] = useState(null)
   const [user, setUser] = useState(null)
@@ -68,7 +83,7 @@ function App () {
       <div className='bg-gray-100 dark:bg-gray-900'>
         <Alert alert={alert} />
         <div className='flex'>
-          {user && <Sidebar user={user} showAlert={showAlert} />}
+          {user && <Sidebar user={user} showAlert={showAlert} darkMode={darkMode} setDarkMode={setDarkMode} />}
           <div className='flex-grow'>
             <Routes>
               <Route path='/login' element={user ? <Navigate to='/' /> : <Login setUser={setUser} showAlert={showAlert} />} />
@@ -76,6 +91,7 @@ function App () {
               <Route path='/' element={<ProtectedRoute user={user}><Home /></ProtectedRoute>} />
               <Route excat path='/investment' element={<Investment />} />
               <Route excat path='/education' element={<EducationHub />} />
+              <Route excat path='/terms' element={<TermsAndConditions />} />
               <Route path='/profile' element={<ProtectedRoute user={user}><Profile user={user} showAlert={showAlert} /></ProtectedRoute>} />
             </Routes>
           </div>
