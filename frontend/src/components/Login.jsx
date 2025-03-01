@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react'
 import { useLocation, Link, useNavigate } from 'react-router-dom'
 
 function Login (props) {
-  const hostLink = import.meta.env.REACT_APP_HOSTLINK
-  // console.log(hostLink)
+  const hostLink = import.meta.env.VITE_HOSTLINK
+  console.log(hostLink)
   // const hostLink = 'http://localhost:8000'
   const [credentials, setCredentials] = useState({
     username: '',
