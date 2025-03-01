@@ -106,13 +106,13 @@ const IncomeExpenseForm = () => {
           <label className='block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1'>
             Amount
           </label>
-          <div className='relative'>
+          <div className='relative text-gray-700 dark:text-gray-300'>
             <DollarSign className='absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5' />
             <input
               type='number'
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
-              className='pl-10 block w-full rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-2 focus:ring-indigo-500 focus:border-indigo-500'
+              className=' pl-10 block w-full rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-2 focus:ring-indigo-500 focus:border-indigo-500'
               placeholder='0.00'
               required
             />
@@ -120,10 +120,10 @@ const IncomeExpenseForm = () => {
         </div>
 
         <div>
-          <label className='block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1'>
+          <label className='block text-sm font-medium  text-gray-700 dark:text-gray-300 mb-1'>
             Category
           </label>
-          <div className='relative'>
+          <div className='relative text-gray-700 dark:text-gray-300'>
             <Tag className='absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5' />
             <select
               value={category}
@@ -141,7 +141,7 @@ const IncomeExpenseForm = () => {
           </div>
         </div>
 
-        <div>
+        <div className='text-gray-700 dark:text-gray-300'>
           <label className='block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1'>
             Description
           </label>

@@ -31,7 +31,7 @@ function Sidebar (props) {
         <div className='lg:hidden'>
           <div className='flex items-center justify-between bg-white dark:bg-gray-800 px-4 py-2 shadow-sm'>
             <Link to='/' className='text-xl font-bold text-indigo-600 dark:text-indigo-400'>
-              SpendWise
+              Sampatti
             </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
