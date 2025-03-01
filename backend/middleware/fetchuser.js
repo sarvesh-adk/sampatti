@@ -2,19 +2,21 @@ const jwt = require('jsonwebtoken')
 
 const JWT_SECRET = process.env.JWTSIGN
 
-const fetchuser = (req, res, next) => {
+const fetchUser = (req, res, next) => {
   const token = req.header('auth-token')
+
   if (!token) {
     return res.status(401).json({ error: 'Please authenticate using a valid token' })
   }
+
   try {
-    // Try different token verification strategies
+    // Verify token using JWT_SECRET
     const data = jwt.verify(token, JWT_SECRET)
 
-    // Handle different token structures
+    // Support multiple token structures
     req.user = data.user || data
 
-    // Ensure we have a user ID
+    // Ensure user ID exists
     if (!req.user.id) {
       return res.status(401).json({ error: 'Invalid token structure' })
     }
@@ -22,8 +24,8 @@ const fetchuser = (req, res, next) => {
     next()
   } catch (error) {
     console.error('Token verification error:', error)
-    return res.status(401).json({ error: 'Please authenticate using a valid token' })
+    return res.status(401).json({ error: 'Invalid or expired token' })
   }
 }
 
-module.exports = fetchuser
+module.exports = fetchUser

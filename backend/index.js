@@ -22,6 +22,7 @@ app.use(cors(corsOptions))
 
 app.use('/api/auth', require('./api/auth'))
 app.use('/api/financialGoals', require('./api/financialGoals')) // Ensure this line is present
+app.use('/api/transactions', require('./api/transactions'))
 
 app.get('/', (req, res) => {
   res.send('Backend Route for Sampatti')
