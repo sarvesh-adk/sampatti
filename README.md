@@ -1,8 +1,8 @@
-# SpendWise - Finance Tracker & Educator
+# Sampatti - Finance Tracker & Educator
 
 ## Project Overview
 
-**SpendWise** is an innovative finance tracker and educator tool designed to help users manage their personal finances while providing educational resources on financial literacy. The tool empowers individuals to track their expenses, set budgets, and save for their goals, all while offering insights and tips on how to make smarter financial decisions. Developed by **Team THE CATALYSTS** for the **HACK N WIN 2.0** hackathon at **CGC Jhanjeri**, SpendWise is your go-to solution for gaining control over your finances and learning essential financial skills.
+**Sampatti** is an innovative finance tracker and educator tool designed to help users manage their personal finances while providing educational resources on financial literacy. The tool empowers individuals to track their expenses, set budgets, and save for their goals, all while offering insights and tips on how to make smarter financial decisions. Developed by **Team THE CATALYSTS** for the **HACK N WIN 2.0** hackathon at **CGC Jhanjeri**, Sampatti is your go-to solution for gaining control over your finances and learning essential financial skills.
 
 ---
 
@@ -41,11 +41,11 @@
 ## Installation & Setup
 
 ### Prerequisites:
-Before running SpendWise, ensure you have the following installed:
+Before running Sampatti, ensure you have the following installed:
 
 - **Node.js** (v14 or later)
 - **MongoDB** (for local development or use cloud MongoDB services)
 
 ### Step 1: Clone the Repository
 ```bash
-git clone hhttps://github.com/spam-prakash/spendwise.git
+git clone hhttps://github.com/spam-prakash/Sampatti.git
